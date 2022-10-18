@@ -635,26 +635,28 @@ address .item:not(:last-child) {
   right: 0;
   left: 0;
   bottom: 0;
-  
+
   background-color: rgba(0, 0, 0, 0.2);
   transition: opacity var(--transition-duration) var(--transition-timing-function),
-  visibility var(--transition-duration) var(--transition-timing-function),
-    transform var(--transition-duration) var(--transition-timing-function) ;
+    visibility var(--transition-duration) var(--transition-timing-function);
 }
 
 .backdrop.is-hidden {
   visibility: hidden;
   opacity: 0;
-  transform: scale(0.2);
   pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform:  translate(-50%, -50%) scale(0.5) rotateZ(0);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-
+  transform: translate(-50%, -50%) scale(1) rotateZ(360deg);
+  transition: transform var(--transition-duration) var(--transition-timing-function);
   width: 528px;
   height: 581px;
 
